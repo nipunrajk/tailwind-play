@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- tailwind.config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              twitter: "#1DA1F2",
+            },
+          },
+        },
+      };
+    </script>
+    <!-- custom CSS -->
+    <style type="text/tailwindcss">
+      @layer components {
+        .card {
+          @apply m-10 rounded-lg bg-white px-6 py-8 shadow-xl ring-1 ring-slate-900/5 dark:bg-black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="p-5">
+      <h1 class="text-center text-lg text-blue-400">Hello world</h1>
+
+      <div
+        class="my-4 h-10 w-full rounded-l-md border-2 border-red-950 bg-violet-200 p-2"
+      >
+        <p class="text-center font-mono text-sm font-extrabold">A div</p>
+      </div>
+
+      <!-- Layout -->
+      <div class="fixed top-0 h-10 w-10 bg-red-900"></div>
+      <div class="flex justify-between space-x-11">
+        <div class="h-16 w-16 rounded-full bg-blue-700"></div>
+        <div class="h-16 w-16 rounded-full bg-blue-700"></div>
+      </div>
+      <div class="mt-3 grid grid-cols-3 gap-3">
+        <div class="h-12 bg-violet-900"></div>
+        <div class="h-12 bg-violet-900"></div>
+        <div class="h-12 bg-violet-900"></div>
+      </div>
+      <div class="hidden md:block">
+        <p>more than 768</p>
+      </div>
+      <div class="hidden max-md:block">
+        <p>less than 768</p>
+      </div>
+
+      <button
+        class="my-2 rounded-lg bg-blue-300 px-4 py-2 text-white hover:first-letter:text-5xl focus:outline-none focus:ring focus:ring-blue-950 active:bg-red-800"
+      >
+        Click me
+      </button>
+
+      <ul class="my-2 space-y-2">
+        <li class="bg-white p-2 first:bg-yellow-700">1</li>
+        <li class="bg-white p-2 odd:bg-blue-500 even:bg-green-400">2</li>
+        <li class="bg-white p-2 odd:bg-blue-500 even:bg-green-400">3</li>
+        <li class="bg-white p-2 odd:bg-blue-500 even:bg-green-400">4</li>
+        <li class="bg-white p-2 odd:bg-blue-500 even:bg-green-400">5</li>
+      </ul>
+
+      <!-- Theme dark: -->
+      <div class="card">
+        <h3
+          class="text-base font-medium tracking-tight text-slate-900 dark:text-white"
+        >
+          This is a text element
+        </h3>
+        <p class="mt-2 text-sm text-slate-500 dark:text-blue-500">
+          This is even longer p tag element
+        </p>
+
+        <button
+          id="toggleDark"
+          class="mt-8 bg-red-500 px-4 py-2 font-medium text-blue-500"
+          onclick="document.body.classList.toggle('dark')"
+        >
+          Toggle Dark mode
+        </button>
+      </div>
+
+      <p class="text-lg text-twitter">Twitter Blue</p>
+    </main>
+
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleDark = document.getElementById("toggleDark");
+        toggleDark.addEventListener("click", function () {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+          } else {
+            document.documentElement.classList.add("dark");
+          }
+          alert("click!");
+        });
+      });
+    </script>
+  </body>
+</html>
